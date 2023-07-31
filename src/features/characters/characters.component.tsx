@@ -12,8 +12,10 @@ export type CharactersComponentProps = {
   rickIDDS: number[];
 };
 
-const CharactersComponent: FC<CharactersComponentProps> = ({ rickIDDS }: CharactersComponentProps) => {
-  const { data: characters, error, isLoading } = useGetCharactersQuery( { ids: rickIDDS } );
+const CharactersComponent: FC<CharactersComponentProps> = ({
+  rickIDDS
+}: CharactersComponentProps) => {
+  const { data: characters, error, isLoading } = useGetCharactersQuery({ ids: rickIDDS });
   const dispatch = useAppDispatch();
   const followingIds = useAppSelector((state) => state.following.followingIds);
 
@@ -32,11 +34,11 @@ const CharactersComponent: FC<CharactersComponentProps> = ({ rickIDDS }: Charact
   return (
     <div className={'characters'}>
       {charactersArray.map((iHateThisChars) => (
-        <div className={"card"} key={iHateThisChars.id}>
-          <div className={"card-image"}>
+        <div className={'card'} key={iHateThisChars.id}>
+          <div className={'card-image'}>
             <img src={iHateThisChars.image} />
           </div>
-          <div className={"card-body"}>
+          <div className={'card-body'}>
             <span>{iHateThisChars.name}</span>
             <FollowingButtonComponent
               isFav={followingIds.indexOf(iHateThisChars.id) >= 0}
