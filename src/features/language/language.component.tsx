@@ -1,33 +1,28 @@
-import { FC } from 'react';
-import Languages from 'features/language/language.types';
+import { useLanguageContext } from '../../context/useLanguageContext';
 
-type LanguageComponentProps = {
-  language: Languages;
-  setLanguage: (language: Languages) => void;
-  t: (key: string) => string;
-};
+const LanguageComponent = (): JSX.Element => {
 
-const LanguageComponent: FC<LanguageComponentProps> = ({
-  language,
-  setLanguage,
-  t
-}: LanguageComponentProps) => (
-  <div className={'language'}>
-    <div
-      onClick={() => setLanguage('SPANISH')}
-      className={language === 'SPANISH' ? 'language-button active' : 'language-button'}>
-      {t('language.spanish')}
+  const { language, setLanguage, translate } = useLanguageContext();
+
+  return (
+    <div className={'language'}>
+      <div
+        onClick={() => setLanguage('SPANISH')}
+        className={language === 'SPANISH' ? 'language-button active' : 'language-button'}>
+        {translate('language.spanish')}
+      </div>
+      <button
+        onClick={() => setLanguage('ENGLISH')}
+        className={language === 'ENGLISH' ? 'language-button active' : 'language-button'}>
+        {translate('language.english')}
+      </button>
+      <button
+        onClick={() => setLanguage('PORTUGUESE')}
+        className={language === 'PORTUGUESE' ? 'language-button active' : 'language-button'}>
+        {translate('language.portuguese')}
+      </button>
     </div>
-    <button
-      onClick={() => setLanguage('ENGLISH')}
-      className={language === 'ENGLISH' ? 'language-button active' : 'language-button'}>
-      {t('language.english')}
-    </button>
-    <button
-      onClick={() => setLanguage('PORTUGUESE')}
-      className={language === 'PORTUGUESE' ? 'language-button active' : 'language-button'}>
-      {t('language.portuguese')}
-    </button>
-  </div>
-);
+  )
+}
+
 export default LanguageComponent;
