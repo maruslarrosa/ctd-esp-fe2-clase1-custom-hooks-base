@@ -13,7 +13,7 @@ const NavMobile = () => {
     <div className={`container mobile-nav`}>
       <div className={'container'}>
         <NavLink to="/" className={'nav-link'}>
-          <img className={'logo'} src={'/images/logo-dh.png'} />
+          <img className={'logo'} src={'/images/logo-dh.png'} alt="Digital House Logo" />
         </NavLink>
         <button className={'icon-button'} aria-label="menu-button" onClick={toggle}>
           {isOpen ? <FaTimes /> : <FaBars />}

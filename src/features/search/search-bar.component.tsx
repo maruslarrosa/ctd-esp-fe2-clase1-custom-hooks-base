@@ -22,10 +22,11 @@ const SearchBar: FC = () => {
         placeholder="Search..."
         value={locationsQuery}
         onChange={onSearch}
+        id="search-input"
       />
-      <button className={'icon-button'} type="button">
+      <label className={'icon-button'} htmlFor="search-input">
         <FaSearch />
-      </button>
+      </label>
     </form>
   );
 };
