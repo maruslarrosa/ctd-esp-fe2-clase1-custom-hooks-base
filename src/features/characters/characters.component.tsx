@@ -30,13 +30,15 @@ const CharactersComponent: FC<CharactersComponentProps> = ({
       dispatch(removeCharacterToFollowingList(character.id));
     }
   };
-
   return (
     <div className={'characters'}>
       {charactersArray.map((iHateThisChars) => (
         <div className={'card'} key={iHateThisChars.id}>
           <div className={'card-image'}>
-            <img src={iHateThisChars.image} />
+            <img
+              src={iHateThisChars.image}
+              alt={`${iHateThisChars.name}, ${iHateThisChars.gender}, ${iHateThisChars.origin.name}`}
+            />
           </div>
           <div className={'card-body'}>
             <span>{iHateThisChars.name}</span>
